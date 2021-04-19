@@ -11,5 +11,5 @@ for i in range(T):
 	for i in range(N - 1):
 		print(i + 1, i + 2, 1, 1)
 	for i in range(Q):
-		print(1, 1)
+		print(N, N)
 
