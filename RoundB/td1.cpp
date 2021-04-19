@@ -16,36 +16,44 @@ int main(int argc, char *argv[]) {
 	for (int test = 0; test < T; test++) {
 		int N, Q;
 		scanf("%d %d", &N, &Q);
-		vector<map<int, pair<int, INT_A>>> al(N);
+		vector<int> X, Y, L;
+		vector<INT_A> A;
+		vector<vector<int>> al(N);
 		for (int i = 0; i < N - 1; i++) {
 			int x, y, l;
 			INT_A a;
 			scanf("%d %d %d %lld", &x, &y, &l, &a);
 			x--;
 			y--;
-			al[x][y] = pair<int, INT_A>(l, a);
-			al[y][x] = pair<int, INT_A>(l, a);
+			X.push_back(x);
+			Y.push_back(y);
+			L.push_back(l);
+			A.push_back(a);
+			al[x].push_back(i);
+			al[y].push_back(i);
 		}
 		vector<int> fringe;
-		vector<bool> visited(N, false);
-		vector<pair<int, pair<int, INT_A>>> prev(N, {-1, {-1, -1}});
+		vector<int> prev(N, -1);
 		{
 			// dfs
 			fringe.push_back(0);
+			prev[0] = -2;
+			int counter = 0;
 			while (fringe.size()) {
-				int s = *(fringe.rbegin());
+				if (counter++ > N * 2 + 100) {
+					return 0;
+				}
+				int s = fringe.back();
 				fringe.pop_back();
-				visited[s] = true;
 				for (auto i = al[s].begin(); i != al[s].end(); i++) {
-					const int &t = i->first;
-					const pair<int, INT_A> &la = i->second;
-					if (visited[t])
+					const int t = X[*i] == s ? Y[*i] : X[*i];
+					if (prev[t] != -1)
 						continue;
-					prev[t].first = s;
-					prev[t].second = la;
+					prev[t] = *i;
 					fringe.push_back(t);
 				}
 			}
+			fprintf(stderr, "%d\n", counter);
 		}
 		printf("Case #%d:", test + 1);
 		for (int i = 0; i < Q; i++) {
@@ -54,16 +62,19 @@ int main(int argc, char *argv[]) {
 			int c, w;
 			scanf("%d %d", &c, &w);
 			c--;
+			int counter = 0;
 			while (c) {
-				const int &s = prev[c].first;
-				const int &l = prev[c].second.first;
-				const INT_A &a = prev[c].second.second;
-				if (w >= l) {
+				if (counter++ > N * 2 + 100) {
+					return 0;
+				}
+				int i = prev[c];
+				const int s = X[i] == s ? Y[i] : X[i];
+				if (w >= L[i]) {
 					if (num_tolls == 0) {
-						gcd_tolls = a;
+						gcd_tolls = A[i];
 						num_tolls++;
 					} else {
-						gcd_tolls = std::gcd(gcd_tolls, a);
+						gcd_tolls = std::gcd(gcd_tolls, A[i]);
 						num_tolls++;
 					}
 				}

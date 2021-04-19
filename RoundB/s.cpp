@@ -11,5 +11,6 @@ int main(int argc, char *argv[]) {
 		int ans = 0;
 		cout << "Case #" << (test + 1) << ": " << (ans) << endl;
 	}
+	return 0;
 }
 
