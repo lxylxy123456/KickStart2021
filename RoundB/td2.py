@@ -50,15 +50,26 @@ for test in range(T):
 		al[x][y] = (l, a)
 		al[y][x] = (l, a)
 	# Dfs
+	fringe = []
 	visited = [False] * N
 	prev = [None] * N
+#	def dfs_old(s):
+#		visited[s] = True
+#		for t, (l, a) in al[s].items():
+#			if visited[t]:
+#				continue
+#			prev[t] = (s, l, a)
+#			dfs(t)
 	def dfs(s):
-		visited[s] = True
-		for t, (l, a) in al[s].items():
-			if visited[t]:
-				continue
-			prev[t] = (s, l, a)
-			dfs(t)
+		fringe.append(s)
+		while fringe:
+			s = fringe.pop()
+			visited[s] = True
+			for t, (l, a) in al[s].items():
+				if visited[t]:
+					continue
+				prev[t] = (s, l, a)
+				fringe.append(t)
 	dfs(0)
 	ans = []
 	for c, w in zip(QC, QW):
