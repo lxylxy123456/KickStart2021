@@ -1,5 +1,6 @@
 https://codingcompetitions.withgoogle.com/kickstart
 
+Round name			Start					End						Rank	Tot
 Round A				Mar 21 2021, 04:00 UTC	Mar 21 2021, 07:00 UTC	2522	397
 Round B				Apr 18 2021, 23:00 UTC	Apr 19 2021, 02:00 UTC
 Round C				May 23 2021, 11:00 UTC	May 23 2021, 14:00 UTC
