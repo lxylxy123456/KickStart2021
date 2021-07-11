@@ -3,4 +3,6 @@ Round A
 	Checksum				solved after competition
 Round B
 	Truck Delivery			solved after competition
-
+Round D
+	Final Exam				unsolved
+	Primes and Queries		unsolved
