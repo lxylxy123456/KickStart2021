@@ -3,8 +3,9 @@ import random
 T = 100
 print(T)
 LIM_A = 10**7
+LIM_N = 10**5
 for t in range(T):
-	N = random.randrange(1, 10**5)
+	N = random.randrange(1, LIM_N)
 	# A = random.sample(range(1, LIM_A), N)
 	# A.sort()
 	A = set()
@@ -18,7 +19,7 @@ for t in range(T):
 	M = 0
 	for a, b in zip(A, B):
 		M += b - a + 1
-	M = random.randrange(1, min(M + 1, 10**5))
+	M = random.randrange(1, min(M + 1, LIM_N))
 	print(N, M)
 	for a, b in zip(A, B):
 		print(a, b)
