@@ -31,6 +31,8 @@ for test in range(T):
 		B.append(b)
 	ans = []
 	for s in S:
+		# assert A == sorted(A)
+		# assert B == sorted(B)
 		i = bisect.bisect(A, s)
 		j = bisect.bisect_left(B, s)
 		# print(s, i, j, A, B)
@@ -63,8 +65,8 @@ for test in range(T):
 			else:
 				b = B[j]
 				B[j] = s - 1
-				A.insert(j, s + 1)
-				B.insert(j, b)
+				A.insert(j + 1, s + 1)
+				B.insert(j + 1, b)
 			continue
 		if 1:
 			assert i == j
