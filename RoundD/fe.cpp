@@ -44,6 +44,8 @@ int main(int argc, char *argv[]) {
 			S.emplace_back(s);
 		}
 		vector<int> ans;
+		cout << "Case #" << (test + 1) << ":";
+		int sndex = 0;
 		for (int s : S) {
 			auto i = upper_bound(AB.begin(), AB.end(),
 									std::pair<int, int>(s, s), comp_first);
@@ -81,11 +83,9 @@ int main(int argc, char *argv[]) {
 			} else {
 				assert(0);
 			}
-		}
-		
-		cout << "Case #" << (test + 1) << ":";
-		for (int i : ans) {
-			cout << ' ' << i;
+			cout << ' ' << *ans.rbegin();
+			cout << flush;
+			cerr << "[" << sndex++ << "]" << flush;
 		}
 		cout << endl;
 	}
