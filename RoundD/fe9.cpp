@@ -58,8 +58,8 @@ int main(int argc, char *argv[]) {
 						AB[s + 1] = sec;
 					}
 				} else {
-					INT da = (i == AB.end()) ? 0x7fffffffffffffff : i->first;
-					INT db = j->second;
+					INT da = (i == AB.end()) ? 0x7fffffffffffffff : (i->first - s);
+					INT db = s - j->second;
 					if (db <= da) {
 						ans.push_back(j->second);
 						j->second--;
@@ -72,7 +72,7 @@ int main(int argc, char *argv[]) {
 						ii.first++;
 						AB.erase(i);
 						if (ii.first <= ii.second) {
-							ans[ii.first] = ii.second;
+							AB[ii.first] = ii.second;
 						}
 					}
 				}

@@ -4,5 +4,5 @@ Round A
 Round B
 	Truck Delivery			solved after competition
 Round D
-	Final Exam				unsolved
+	Final Exam				unsolved (TLE after reading the analysis)
 	Primes and Queries		unsolved
