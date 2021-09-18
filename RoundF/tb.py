@@ -31,10 +31,24 @@ for test in range(T):
 		if S[i]:
 			cur = i
 		r.append(cur)
+	r = list(reversed(r))
 	ans = 0
-	# print(l)
-	# print(r)
+	if 0:
+		print(l)
+		print(r)
 	for index, (i, j) in enumerate(zip(l, r)):
 		ans += min(abs(i - index), abs(j - index))
+	if 0:
+		ans2 = 0
+		for i in range(N):
+			j = 0
+			while True:
+				if ((i + j in range(N) and S[i + j]) or
+					(i - j in range(N) and S[i - j])):
+					break
+				j += 1
+				# print(i, j)
+			ans2 += j
+		assert ans == ans2
 	print('Case #%d:' % (test + 1), ans)
 
