@@ -6,3 +6,5 @@ Round B
 Round D
 	Final Exam				unsolved (TLE after reading the analysis)
 	Primes and Queries		unsolved
+Round G
+	Banana Bunches			solved after competition
