@@ -8,3 +8,5 @@ Round D
 	Primes and Queries		unsolved
 Round G
 	Banana Bunches			solved after competition
+Round H
+	Dependent Events		unsolved
